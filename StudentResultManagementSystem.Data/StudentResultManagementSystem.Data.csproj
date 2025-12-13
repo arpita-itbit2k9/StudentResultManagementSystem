@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7050AA15-B09D-488C-9E6C-08B75CEE26A8}</ProjectGuid>
+    <ProjectGuid>{11CFE28A-074B-424F-BF96-CD1B08B56D56}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudentResultManagementSystem.BusinessLogic</RootNamespace>
-    <AssemblyName>StudentResultManagementSystem.BusinessLogic</AssemblyName>
+    <RootNamespace>StudentResultManagementSystem.Data</RootNamespace>
+    <AssemblyName>StudentResultManagementSystem.Data</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,14 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IResultService.cs" />
-    <Compile Include="Model\Student.cs" />
-    <Compile Include="Model\StudentResult.cs" />
-    <Compile Include="Model\SubjectMarks.cs" />
-    <Compile Include="Services\ResultCalculator.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DTO\StudentResultCsv.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ResultService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

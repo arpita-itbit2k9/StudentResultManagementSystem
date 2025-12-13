@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace StudentResultManagementSystem.BusinessLogic.Model
 {
@@ -11,6 +7,6 @@ namespace StudentResultManagementSystem.BusinessLogic.Model
         public int StudentId { get; set; }
         public int RollNumber { get; set; }
         public string Name { get; set; }
-        public List<Subject> Subjects { get; set; }
+        public List<SubjectMarks> SubjectsMarks { get; set; }
     }
 }

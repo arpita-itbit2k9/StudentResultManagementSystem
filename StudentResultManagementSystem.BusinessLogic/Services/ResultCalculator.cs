@@ -1,37 +1,29 @@
 ﻿using StudentResultManagementSystem.BusinessLogic.Model;
+using System.Collections.Generic;
 
 namespace StudentResultManagementSystem.BusinessLogic.Operation
 {
-    public class StudentResult
+    public class ResultCalculator
     {
-        public int TotalMarks { get; set; }
-        public int ObtainedMarks { get; set; }
-        public double percentage { get; set; }
-        public string Grade { get; set; }
-
-        public Student Student { get; set; }
-
-        public int CalculateTotalMarks()
+    
+        public int CalculateTotalMarks(List<SubjectMarks> subjectsMarks)
         {
-
             int total = 0;
 
-            foreach (var subject in Student.Subjects)
+            foreach (var subject in subjectsMarks)
             {
                 total += subject.MaxMarks;
             }
-            TotalMarks = total;
             return total;
         }
 
-        public int CalculateObtainedMarks()
+        public int CalculateObtainedMarks(List<SubjectMarks> subjectsMarks)
         {
             int obtained = 0;
-            foreach (var subject in Student.Subjects)
+            foreach (var subject in subjectsMarks)
             {
                 obtained += subject.Marks;
             }
-            ObtainedMarks = obtained;
             return obtained;
         }
 

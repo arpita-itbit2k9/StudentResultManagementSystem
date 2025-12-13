@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentResultManagementSystem.BusinessLogic.Model
 {
-    public class Subject
+    public class SubjectMarks
     {
         public int SubjectId { get; set; }
         public string SubjectName { get; set; }

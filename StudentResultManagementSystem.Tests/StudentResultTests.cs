@@ -10,7 +10,8 @@ namespace StudentResultManagementSystem.Tests
     public class StudentResultTests
     {
         private Student student;
-        private StudentResult studentResult;
+        private List<SubjectMarks> subjectsMarks;
+        private ResultCalculator resultCalculator;
 
         [SetUp]
         public void SetUp()
@@ -22,7 +23,7 @@ namespace StudentResultManagementSystem.Tests
         public void CalculateTotalMarks_WhenValidMarksProvided_ReturnsCorrectTotal()
         {
 
-            var totalMarks = studentResult.CalculateTotalMarks();
+            var totalMarks = resultCalculator.CalculateTotalMarks(subjectsMarks);
 
             Assert.That(totalMarks, Is.EqualTo(300));
         }
@@ -31,7 +32,7 @@ namespace StudentResultManagementSystem.Tests
         public void CalculateObtainedMarks_WhenValidMarksProvided_ReturnsCorrectObtainedMarks()
         {
            
-            var obtainedMarks = studentResult.CalculateObtainedMarks();
+            var obtainedMarks = resultCalculator.CalculateObtainedMarks(subjectsMarks);
 
             Assert.That(obtainedMarks, Is.EqualTo(270));
         }
@@ -40,7 +41,7 @@ namespace StudentResultManagementSystem.Tests
         public void CalculatePercentage_WhenValidMarksProvided_ReturnsCorrectPercentage()
         {
            
-            var percentage = studentResult.CalculatePercentage(300,270);
+            var percentage = resultCalculator.CalculatePercentage(300,270);
 
             Assert.That(percentage.ToString(), Is.EqualTo("90"));
         }
@@ -48,8 +49,7 @@ namespace StudentResultManagementSystem.Tests
         [Test]
         public void CalculateGrade_WhenValidMarksProvided_ReturnsCorrectGrade()
         {
-            var result = new StudentResult { Student = student };
-            var grade = result.CalculateGrade(90);
+            var grade = resultCalculator.CalculateGrade(90);
 
             Assert.That(grade, Is.EqualTo("A+"));
         }
@@ -57,21 +57,24 @@ namespace StudentResultManagementSystem.Tests
 
         private void CreateMockData()
         {
-             student = new Student
+            subjectsMarks = new List<SubjectMarks>
+                {
+                    new SubjectMarks { SubjectId = 1, SubjectName="Maths", MinMarks = 33, MaxMarks = 100 ,Marks = 85 },
+                    new SubjectMarks { SubjectId = 2, SubjectName="Science", MinMarks = 33, MaxMarks = 100 ,Marks = 90 },
+                    new SubjectMarks { SubjectId = 3, SubjectName="English", MinMarks = 33, MaxMarks = 100 ,Marks = 95 },
+
+                };
+            student = new Student
             {
                 StudentId = 1,
                 RollNumber = 101,
                 Name = "John Doe",
-                Subjects = new List<Subject>
-                {
-                    new Subject { SubjectId = 1, SubjectName="Maths", MinMarks = 33, MaxMarks = 100 ,Marks = 85 },
-                    new Subject { SubjectId = 2, SubjectName="Science", MinMarks = 33, MaxMarks = 100 ,Marks = 90 },
-                    new Subject { SubjectId = 3, SubjectName="English", MinMarks = 33, MaxMarks = 100 ,Marks = 95 },
-
-                }
+                SubjectsMarks = subjectsMarks,
             };
 
-            studentResult = new StudentResult { Student = student };
+
+
+            resultCalculator = new ResultCalculator();
         }
 
     }
