@@ -1,5 +1,5 @@
-﻿using StudentResultManagementSystem.BusinessLogic.Interfaces;
-using StudentResultManagementSystem.BusinessLogic.Model;
+﻿using StudentResultManagementSystem.Contracts.Interfaces;
+using StudentResultManagementSystem.Contracts.Model;
 using StudentResultManagementSystem.BusinessLogic.Operation;
 using System;
 using System.Collections.Generic;
@@ -9,10 +9,14 @@ namespace StudentResultManagementSystem.BusinessLogic.Services
     public class ResultService : IResultService
     {
         private readonly ResultCalculator _calculator;
+        private StudentResult _studentResult;
+        private readonly IResultRepository _resultRepository;
 
-        public ResultService()
+
+        public ResultService(IResultRepository resultRepository)
         {
             _calculator = new ResultCalculator();
+            _resultRepository = resultRepository ?? throw new ArgumentNullException(nameof(resultRepository));
         }
         public StudentResult GenerateResult(Student student, List<SubjectMarks> subjectMarks)
         {
@@ -21,7 +25,7 @@ namespace StudentResultManagementSystem.BusinessLogic.Services
             var percentage = _calculator.CalculatePercentage(totalMarks, obtainedMarks);
             var grade = _calculator.CalculateGrade(Convert.ToInt32(percentage));
 
-            return new StudentResult
+            _studentResult = new StudentResult
             {
                 Student = student,
                 TotalMarks = totalMarks,
@@ -29,6 +33,16 @@ namespace StudentResultManagementSystem.BusinessLogic.Services
                 Percentage = percentage,
                 Grade = grade
             };
+            return _studentResult;
+        }
+
+        public bool SaveResult(string filePath, StudentResult studentResult, List<SubjectMarks> subjectMarksList)
+        {
+            if (studentResult == null)
+                throw new ArgumentNullException(nameof(studentResult));
+
+            _resultRepository.Save(filePath, studentResult, subjectMarksList);
+            return true;
         }
     }
 }

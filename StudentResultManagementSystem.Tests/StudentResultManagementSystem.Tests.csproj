@@ -149,6 +149,10 @@
       <Project>{7050AA15-B09D-488C-9E6C-08B75CEE26A8}</Project>
       <Name>StudentResultManagementSystem.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StudentResultManagementSystem.Contracts\StudentResultManagementSystem.Contracts.csproj">
+      <Project>{86c54bf8-510c-45e3-80d7-cfd510fc2854}</Project>
+      <Name>StudentResultManagementSystem.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

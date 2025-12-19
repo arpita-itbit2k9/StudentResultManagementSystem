@@ -1,4 +1,7 @@
-﻿using System;
+﻿using StudentResultManagementSystem.BusinessLogic.Services;
+using StudentResultManagementSystem.Contracts.Interfaces;
+using StudentResultManagementSystem.Data.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +19,11 @@ namespace StudentResultManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            IResultRepository repository = new CsvResultRepository();
+            IResultService service = new ResultService(repository);
+
+            
+            Application.Run(new StudentResultManagementForm(service));
         }
     }
 }

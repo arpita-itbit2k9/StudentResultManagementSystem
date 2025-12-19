@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StudentResultManagementSystem.BusinessLogic.Model
+﻿namespace StudentResultManagementSystem.Contracts.Model
 {
     public class StudentResult
     {

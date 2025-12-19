@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using StudentResultManagementSystem.BusinessLogic.Model;
+using StudentResultManagementSystem.Contracts.Model;
 using StudentResultManagementSystem.BusinessLogic.Operation;
 using System;
 using System.Collections.Generic;

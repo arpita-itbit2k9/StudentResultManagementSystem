@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StudentResultManagementSystem.BusinessLogic.Model
+namespace StudentResultManagementSystem.Contracts.Model
 {
     public class Student
     {

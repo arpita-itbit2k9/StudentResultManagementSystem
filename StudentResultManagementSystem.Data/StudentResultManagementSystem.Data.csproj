@@ -41,9 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DTO\StudentResultCsv.cs" />
+    <Compile Include="Mappers\StudentResultMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CsvResultRepository.cs" />
+    <Compile Include="Services\FileHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentResultManagementSystem.Contracts\StudentResultManagementSystem.Contracts.csproj">
+      <Project>{86c54bf8-510c-45e3-80d7-cfd510fc2854}</Project>
+      <Name>StudentResultManagementSystem.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

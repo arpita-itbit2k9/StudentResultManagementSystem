@@ -46,14 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="StudentResultManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="StudentResultManagementForm.Designer.cs">
+      <DependentUpon>StudentResultManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="StudentResultManagementForm.resx">
+      <DependentUpon>StudentResultManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +78,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentResultManagementSystem.BusinessLogic\StudentResultManagementSystem.BusinessLogic.csproj">
+      <Project>{7050aa15-b09d-488c-9e6c-08b75cee26a8}</Project>
+      <Name>StudentResultManagementSystem.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentResultManagementSystem.Contracts\StudentResultManagementSystem.Contracts.csproj">
+      <Project>{86c54bf8-510c-45e3-80d7-cfd510fc2854}</Project>
+      <Name>StudentResultManagementSystem.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentResultManagementSystem.Data\StudentResultManagementSystem.Data.csproj">
+      <Project>{11CFE28A-074B-424F-BF96-CD1B08B56D56}</Project>
+      <Name>StudentResultManagementSystem.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

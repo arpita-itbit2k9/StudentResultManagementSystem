@@ -1,4 +1,4 @@
-﻿using StudentResultManagementSystem.BusinessLogic.Model;
+﻿using StudentResultManagementSystem.Contracts.Model;
 using System.Collections.Generic;
 
 namespace StudentResultManagementSystem.BusinessLogic.Operation
